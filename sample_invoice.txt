@@ -1,0 +1,7 @@
+SAMPLE INVOICE - FICTIONAL DATA
+Supplier: Practice Supplier Pvt Ltd
+Invoice Number: TEST-1001
+Date: 2026-10-01
+Subtotal: 100.00
+Tax: 18.00
+Total: 118.00
