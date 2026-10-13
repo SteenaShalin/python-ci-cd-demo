@@ -17,3 +17,16 @@ def test_rejects_missing_invoice_field(tmp_path):
 
     with pytest.raises(ValueError, match="invoice_number"):
         extract_invoice(str(invoice))
+
+
+def test_extracts_total_with_thousands_separator(tmp_path):
+    invoice = tmp_path / "large_invoice.txt"
+    invoice.write_text(
+        "Invoice Number: TEST-2001\n"
+        "Date: 2026-10-10\n"
+        "Total: 1,234.56\n"
+    )
+
+    result = extract_invoice(str(invoice))
+
+    assert result["total"] == 1234.56
