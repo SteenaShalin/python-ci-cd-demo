@@ -25,3 +25,5 @@ def extract_invoice(path: str) -> dict:
 
 if __name__ == "__main__":
     print(extract_invoice("sample_invoice.txt"))
+
+# Demo: GitHub Actions checks this project after each push.
