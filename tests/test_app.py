@@ -30,3 +30,15 @@ def test_extracts_total_with_thousands_separator(tmp_path):
     result = extract_invoice(str(invoice))
 
     assert result["total"] == 1234.56
+
+
+def test_rejects_incorrectly_grouped_total(tmp_path):
+    invoice = tmp_path / "invalid_total.txt"
+    invoice.write_text(
+        "Invoice Number: TEST-3001\n"
+        "Date: 2026-10-12\n"
+        "Total: 12,34.56\n"
+    )
+
+    with pytest.raises(ValueError, match="total"):
+        extract_invoice(str(invoice))

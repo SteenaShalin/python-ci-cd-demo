@@ -8,8 +8,8 @@ def extract_invoice(path: str) -> dict:
     fields = {
         "invoice_number": r"Invoice Number:\s*(.+)",
         "date": r"Date:\s*(\d{4}-\d{2}-\d{2})",
-	"total": r"Total:\s*([\d,]+\.\d{2})",
-    }
+        "total": r"Total:\s*((?:\d+|\d{1,3}(?:,\d{3})+)\.\d{2})",   
+ }
 
     result = {}
 
